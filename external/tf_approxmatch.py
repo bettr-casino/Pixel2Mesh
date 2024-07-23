@@ -1,4 +1,7 @@
-import tensorflow as tf
+# import tensorflow as tf
+# compat with TensorFlow 2.x and the M1 architecture
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from tensorflow.python.framework import ops
 import os.path as osp
 

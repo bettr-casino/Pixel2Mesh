@@ -14,7 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import tensorflow as tf
+# import tensorflow as tf
+# compat with TensorFlow 2.x and the M1 architecture
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from p2m.utils import *
 from p2m.models import GCN
 from p2m.fetcher import *

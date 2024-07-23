@@ -15,7 +15,10 @@
 # limitations under the License.
 #
 import os, sys
-import tensorflow as tf
+# import tensorflow as tf
+# compat with TensorFlow 2.x and the M1 architecture
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from pixel2mesh.models import GCN
 from pixel2mesh.fetcher import *
 from pixel2mesh.cd_dist import nn_distance
