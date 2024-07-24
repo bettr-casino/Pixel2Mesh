@@ -12,9 +12,6 @@ install_compat() {
     # Create the Conda environment with Python 3.10
     mamba create -n $ENV_NAME python=3.10 -y
 
-    # Activate the environment
-    source activate $ENV_NAME
-
     # Install necessary build tools
     brew install gcc
 
@@ -36,6 +33,9 @@ install_compat() {
 }
 
 # install_compat
+
+# Activate the environment
+source activate $ENV_NAME
 
 # Set the PYTHONPATH to include the Pixel2Mesh directory
 export PYTHONPATH=$(pwd):$PYTHONPATH
