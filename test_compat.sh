@@ -22,6 +22,11 @@ pip install h5py==3.8.0
 pip install Pillow==8.4.0
 pip install matplotlib==3.4.3  # Add matplotlib installation
 pip install scikit-learn==0.24.2  # Optional: Add other necessary dependencies
+pip install Cython==0.29.24  # Install Cython
+pip install setuptools==58.0.0  # Install setuptools
+
+# Install necessary build tools
+brew install gcc
 
 # Install tflearn from local repo
 pip install -e "$SCRIPT_DIR/../tflearn"
