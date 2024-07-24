@@ -14,19 +14,22 @@ mamba create -n $ENV_NAME python=3.10 -y
 # Activate the environment
 source activate $ENV_NAME
 
+# Install necessary build tools
+brew install gcc
+
 # Install specific versions of TensorFlow and related packages
+pip install Cython==0.29.24
+pip install setuptools==58.0.0
 pip install tensorflow-macos==2.9.0
 pip install tensorflow-metal==0.6.0
 pip install numpy==1.24.3
 pip install h5py==3.8.0
 pip install Pillow==8.4.0
-pip install matplotlib==3.4.3  # Add matplotlib installation
-pip install scikit-learn==0.24.2  # Optional: Add other necessary dependencies
-pip install Cython==0.29.24  # Install Cython
-pip install setuptools==58.0.0  # Install setuptools
+pip install matplotlib==3.4.3
+pip install scikit-image==0.19.3
 
-# Install necessary build tools
-brew install gcc
+mamba install -c conda-forge scikit-learn==1.0.2 -y
+
 
 # Install tflearn from local repo
 pip install -e "$SCRIPT_DIR/../tflearn"
