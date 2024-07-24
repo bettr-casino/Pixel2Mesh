@@ -5,34 +5,37 @@ ENV_NAME="test-pixel2mesh-compat"
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-# Remove the environment if it exists
-mamba env remove -n $ENV_NAME -y
+install_compat() {
+    # Remove the environment if it exists
+    mamba env remove -n $ENV_NAME -y
 
-# Create the Conda environment with Python 3.10
-mamba create -n $ENV_NAME python=3.10 -y
+    # Create the Conda environment with Python 3.10
+    mamba create -n $ENV_NAME python=3.10 -y
 
-# Activate the environment
-source activate $ENV_NAME
+    # Activate the environment
+    source activate $ENV_NAME
 
-# Install necessary build tools
-brew install gcc
+    # Install necessary build tools
+    brew install gcc
 
-# Install specific versions of TensorFlow and related packages
-pip install Cython==0.29.24
-pip install setuptools==58.0.0
-pip install tensorflow-macos==2.9.0
-pip install tensorflow-metal==0.6.0
-pip install numpy==1.24.3
-pip install h5py==3.8.0
-pip install Pillow==8.4.0
-pip install matplotlib==3.4.3
-pip install scikit-image==0.19.3
+    # Install specific versions of TensorFlow and related packages
+    pip install Cython==0.29.24
+    pip install setuptools==58.0.0
+    pip install tensorflow-macos==2.9.0
+    pip install tensorflow-metal==0.6.0
+    pip install numpy==1.24.3
+    pip install h5py==3.8.0
+    pip install Pillow==8.4.0
+    pip install matplotlib==3.4.3
+    pip install scikit-image==0.19.3
 
-mamba install -c conda-forge scikit-learn==1.0.2 -y
+    mamba install -c conda-forge scikit-learn==1.0.2 -y
 
+    # Install tflearn from local repo
+    pip install -e "$SCRIPT_DIR/../tflearn"
+}
 
-# Install tflearn from local repo
-pip install -e "$SCRIPT_DIR/../tflearn"
+# install_compat
 
 # Set the PYTHONPATH to include the Pixel2Mesh directory
 export PYTHONPATH=$(pwd):$PYTHONPATH

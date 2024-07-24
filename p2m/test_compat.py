@@ -15,7 +15,8 @@ tf.set_random_seed(seed)
 # Settings
 flags = tf.app.flags
 FLAGS = flags.FLAGS
-flags.DEFINE_string('image', 'Data/examples/plane.png', 'Testing image.')
+# flags.DEFINE_string('image', 'Data/examples/plane.png', 'Testing image.')
+flags.DEFINE_string('image', 'Data/examples/sumerian-princess.png', 'Testing image.')
 flags.DEFINE_float('learning_rate', 0., 'Initial learning rate.')
 flags.DEFINE_integer('hidden', 256, 'Number of units in hidden layer.')
 flags.DEFINE_integer('feat_dim', 963, 'Number of units in perceptual feature layer.')

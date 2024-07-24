@@ -5,3 +5,4 @@ Data/checkpoint/gcn.ckpt.data-00000-of-00001
 Data/checkpoint/gcn.ckpt.index
 Data/checkpoint/gcn.ckpt.meta
 Data/checkpoint/checkpoint
+*.pyc
